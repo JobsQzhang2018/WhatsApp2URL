@@ -1,6 +1,6 @@
 # WhatsApp 链接生成器
 
-![WhatsApp Logo](https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg|200)
+<img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" width="200" alt="WhatsApp Logo">
 
 一个简单易用的工具，用于生成WhatsApp聊天链接，支持单号码和批量处理模式。
 
