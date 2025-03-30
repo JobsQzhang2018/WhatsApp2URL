@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WhatsApp 链接生成器</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" type="image/svg+xml">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp Logo" class="logo">
+            <h1>WhatsApp 链接生成器</h1>
+            <p class="description">生成WhatsApp聊天链接，支持单号码和批量处理</p>
+        </header>
+
+        <div class="tabs">
+            <button class="tab-btn active" data-tab="single">单号码模式</button>
+            <button class="tab-btn" data-tab="batch">批量模式</button>
+        </div>
+
+        <div class="tab-content">
+            <!-- 单号码模式 -->
+            <div class="tab-pane active" id="single-mode">
+                <div class="input-group">
+                    <label for="phone-number">电话号码 (含国家代码)</label>
+                    <input type="text" id="phone-number" placeholder="例如: 86 123 1234 1234 或 +86 123 1234 1234" class="input-field">
+                </div>
+                <div class="input-group">
+                    <label for="message">预设消息 (可选)</label>
+                    <textarea id="message" placeholder="输入想要发送的消息" class="input-field"></textarea>
+                </div>
+                <button id="generate-btn" class="btn primary-btn">生成链接</button>
+                
+                <div class="result-container" id="single-result">
+                    <h3>生成结果</h3>
+                    <div class="result-box">
+                        <input type="text" id="result-link" class="input-field" readonly>
+                        <button id="copy-btn" class="btn secondary-btn">复制链接</button>
+                        <button id="open-btn" class="btn secondary-btn">打开链接</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 批量模式 -->
+            <div class="tab-pane" id="batch-mode">
+                <div class="input-group">
+                    <label for="batch-numbers">批量电话号码 (每行一个)</label>
+                    <textarea id="batch-numbers" placeholder="每行输入一个号码，例如:
+86 123 1234 1234
++86 123 1234 1234" class="input-field batch-input"></textarea>
+                </div>
+                <div class="input-group">
+                    <label for="batch-message">预设消息 (可选)</label>
+                    <textarea id="batch-message" placeholder="输入想要发送的消息" class="input-field"></textarea>
+                </div>
+                <button id="batch-generate-btn" class="btn primary-btn">批量生成</button>
+                
+                <div class="result-container" id="batch-result">
+                    <h3>批量处理结果</h3>
+                    <div class="table-container">
+                        <table id="result-table">
+                            <thead>
+                                <tr>
+                                    <th>序号</th>
+                                    <th>原始号码</th>
+                                    <th>处理后号码</th>
+                                    <th>WhatsApp链接</th>
+                                    <th>操作</th>
+                                </tr>
+                            </thead>
+                            <tbody id="result-tbody">
+                                <!-- 结果将在这里动态生成 -->
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="batch-actions">
+                        <button id="copy-all-btn" class="btn secondary-btn">复制所有链接</button>
+                        <button id="export-csv-btn" class="btn secondary-btn">导出为CSV</button>
+                        <button id="open-all-btn" class="btn secondary-btn">打开所有链接</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <footer>
+            <p>© 2023 WhatsApp链接生成器 | <a href="https://github.com" target="_blank">GitHub</a></p>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
